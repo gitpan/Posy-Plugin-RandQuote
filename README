@@ -1,0 +1,60 @@
+
+==== NAME ====
+
+Posy::Plugin::RandQuote - Posy plugin to give a random quote from a file
+
+
+==== VERSION ====
+
+This describes version ``0.40'' of Posy::Plugin::RandQuote.
+
+
+==== DESCRIPTION ====
+
+Sticks a random quote from a file into the body of the entry. This replaces
+a string in the format of <!--quote(*filename*)--> with a "quote" grabbed
+from the file, where quotes are defined by text between $rand_quote_delim.
+
+This looks for the quote-file first in the local (data) directory, then
+relative to the top of the data directory, then in the local HTML directory,
+then relative to the top of the HTML directory.
+
+This creates a 'rand_quote' entry action, which should be placed after
+'parse_entry' in the entry_action list and before 'render_entry'. If you are
+using the Posy::Plugin::ShortBody plugin, this should be placed after
+'short_body' in the entry_action list, not before it.
+
+
+==   Configuration   ==
+
+This expects configuration settings in the $self->{config} hash, which, in
+the default Posy setup, can be defined in the main "config" file in the data
+directory.
+
+``rand_quote_delim''
+The delimiter which defines quotes in the quote-file. (default: "%\n", which
+is what is used in "fortune" data files)
+
+
+==== REQUIRES ====
+
+    Posy
+    Posy::Core
+
+    Test::More
+
+
+==== AUTHOR ====
+
+    Kathryn Andersen (RUBYKAT)
+    perlkat AT katspace dot com
+    http://www.katspace.com
+
+
+==== COPYRIGHT AND LICENCE ====
+
+Copyright (c) 2004-2005 by Kathryn Andersen
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
